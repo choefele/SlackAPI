@@ -36,12 +36,24 @@
             name = SlackAPI;
             path = 'Sources';
             sourceTree = '<group>';
-            children = ('__PBXFileRef_Sources/main.swift', '__PBXFileRef_Sources/Types.swift');
+            children = ('__PBXFileRef_Sources/main.swift', '__PBXFileRef_Sources/Parsing.swift', '__PBXFileRef_Sources/SlackClient.swift', '__PBXFileRef_Sources/Types.swift');
         };
         '__PBXFileRef_Sources/main.swift' = {
             isa = PBXFileReference;
             lastKnownFileType = sourcecode.swift;
             name = 'main.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Parsing.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'Parsing.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/SlackClient.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            name = 'SlackClient.swift';
             sourceTree = '<group>';
         };
         '__PBXFileRef_Sources/Types.swift' = {
@@ -69,12 +81,20 @@
         };
         CompilePhase_SlackAPI = {
             isa = PBXSourcesBuildPhase;
-            files = ('__src_cc_ref_Sources/main.swift', '__src_cc_ref_Sources/Types.swift');
+            files = ('__src_cc_ref_Sources/main.swift', '__src_cc_ref_Sources/Parsing.swift', '__src_cc_ref_Sources/SlackClient.swift', '__src_cc_ref_Sources/Types.swift');
             runOnlyForDeploymentPostprocessing = 0;
         };
         '__src_cc_ref_Sources/main.swift' = {
             isa = PBXBuildFile;
             fileRef = '__PBXFileRef_Sources/main.swift';
+        };
+        '__src_cc_ref_Sources/Parsing.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Parsing.swift';
+        };
+        '__src_cc_ref_Sources/SlackClient.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/SlackClient.swift';
         };
         '__src_cc_ref_Sources/Types.swift' = {
             isa = PBXBuildFile;
