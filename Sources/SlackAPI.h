@@ -2,11 +2,11 @@
 //  SlackAPI.h
 //  SlackAPI
 //
-//  Created by Claus Höfele on 18.06.16.
+//  Created by Claus Höfele on 19.06.16.
 //  Copyright © 2016 Claus Höfele. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <UIKit/UIKit.h>
 
 //! Project version number for SlackAPI.
 FOUNDATION_EXPORT double SlackAPIVersionNumber;
