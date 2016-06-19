@@ -23,6 +23,5 @@ class SlackClient {
         let count = 5
 
         let _ = URL(string: SLACK_API + "/files.list?token=\(token)&types=\(types)&count=\(count)&ts_to=\(to)")!
-        
     }
 }

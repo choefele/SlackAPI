@@ -1,16 +1,16 @@
 import Foundation
 
-struct File {
-    var id: String
-    var name: String?
-    var title: String?
-    var userId: String?
-    var created: Date?
+public struct File {
+    public var id: String
+    public var name: String?
+    public var title: String?
+    public var userId: String?
+    public var created: Date?
 }
 
-struct Page {
-    var count: Int
-    var total: Int
-    var page: Int
-    var pages: Int
+public struct Page {
+    public var count: Int
+    public var total: Int
+    public var currentPage: Int
+    public var pages: Int
 }
