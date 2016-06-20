@@ -38,14 +38,13 @@ public class Parser {
     }
 
     public class func parsePage<T>(JSON: [String: AnyObject], elements: [T]) -> Page<T>? {
-        guard let count = JSON["count"] as? Int,
-            let total = JSON["total"] as? Int,
-            let currentPage = JSON["page"] as? Int,
-            let pages = JSON["pages"] as? Int else {
+        guard let totalNumberOfElements = JSON["total"] as? Int,
+            let index = JSON["page"] as? Int,
+            let totalNumberOfPages = JSON["pages"] as? Int else {
             return nil
         }
 
-        let page = Page(elements:elements, count: count, total: total, currentPage: currentPage, pages: pages)
+        let page = Page(elements: elements, index: index, totalNumberOfElements: totalNumberOfElements, totalNumberOfPages: totalNumberOfPages)
         return page
     }
 }

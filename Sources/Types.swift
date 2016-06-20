@@ -10,8 +10,7 @@ public struct File {
 
 public struct Page<T> {
     public var elements: [T]
-    public var count: Int
-    public var total: Int
-    public var currentPage: Int
-    public var pages: Int
+    public var index: Int
+    public var totalNumberOfElements: Int
+    public var totalNumberOfPages: Int
 }

@@ -7,8 +7,12 @@ import SlackAPI
 PlaygroundPage.current.needsIndefiniteExecution = true
 
 print("request started")
+
+let date = Date()
+var pageIndex = 1
+
 let slackClient = SlackClient(token: "")
-slackClient.listFiles(to: Date()) { (page) in
+slackClient.listFiles(to: date, pageIndex: pageIndex) { (page) in
     defer {
         PlaygroundPage.current.finishExecution()
     }
