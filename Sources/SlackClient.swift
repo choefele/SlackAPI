@@ -20,7 +20,7 @@ public class SlackClient {
     
     public func listFiles(to: Date = Date(), pageIndex: Int = 1, completionHandler: (Page<File>?) -> Void) {
         let types = "all"
-        let count = 5
+        let count = 100
         let apiURL = URL(string: SLACK_API + "/files.list?token=\(token)&types=\(types)&count=\(count)&page=\(pageIndex)&ts_to=\(to.timeIntervalSince1970)")!
         let dataTask = session.dataTask(with: apiURL) { (data, response, error) in
             if let _ = error {
