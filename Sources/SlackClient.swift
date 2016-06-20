@@ -18,7 +18,7 @@ public class SlackClient {
         self.token = token
     }
     
-    public func listFiles(to: Date = Date(), completionHandler: ([File]?) -> Void) {
+    public func listFiles(to: Date = Date(), completionHandler: (Page<File>?) -> Void) {
         let types = "all"
         let count = 5
         let apiURL = URL(string: SLACK_API + "/files.list?token=\(token)&types=\(types)&count=\(count)&ts_to=\(to.timeIntervalSince1970)")!
@@ -34,12 +34,12 @@ public class SlackClient {
                 let jsonFiles = jsonDictionary["files"] as? [[String: AnyObject]],
                 let files = Parser.parseFiles(JSON: jsonFiles),
                 let jsonPage = jsonDictionary["paging"] as? [String: AnyObject],
-                let _ = Parser.parsePage(JSON: jsonPage) else {
+                let page = Parser.parsePage(JSON: jsonPage, elements: files) else {
                 completionHandler(nil)
                 return
             }
             
-            completionHandler(files)
+            completionHandler(page)
         }
         dataTask.resume()
     }

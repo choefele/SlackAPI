@@ -37,7 +37,7 @@ public class Parser {
         return files.count > 0 ? files : nil
     }
 
-    public class func parsePage(JSON: [String: AnyObject]) -> Page? {
+    public class func parsePage<T>(JSON: [String: AnyObject], elements: [T]) -> Page<T>? {
         guard let count = JSON["count"] as? Int,
             let total = JSON["total"] as? Int,
             let currentPage = JSON["page"] as? Int,
@@ -45,7 +45,7 @@ public class Parser {
             return nil
         }
 
-        let page = Page(count: count, total: total, currentPage: currentPage, pages: pages)
+        let page = Page(elements:elements, count: count, total: total, currentPage: currentPage, pages: pages)
         return page
     }
 }

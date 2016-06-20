@@ -57,7 +57,9 @@ class SlackAPITests: XCTestCase {
             return
         }
         
-        let page = Parser.parsePage(JSON: pageJSON)
+        let elements = [String]()
+        let page = Parser.parsePage(JSON: pageJSON, elements: elements)
+        XCTAssertEqual((page?.elements)!, elements)
         XCTAssertEqual(page?.count, 10)
         XCTAssertEqual(page?.total, 360)
         XCTAssertEqual(page?.currentPage, 1)

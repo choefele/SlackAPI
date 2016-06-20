@@ -8,9 +8,9 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 
 print("request started")
 let slackClient = SlackClient(token: "")
-slackClient.listFiles(to: Date()) { (files) in
+slackClient.listFiles(to: Date()) { (page) in
     defer {
         PlaygroundPage.current.finishExecution()
     }
-    print("request ended \(files?.count)")
+    print("request ended \(page?.elements.count)")
 }
