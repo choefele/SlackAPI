@@ -43,4 +43,29 @@ public class SlackClient {
         }
         dataTask.resume()
     }
+    
+    public func postMessageChat(text: String, completionHandler: () -> Void) {
+        let channel = "slack-api-test"
+        let apiURL = URL(string: SLACK_API + "/chat.postMessage?token=\(token)&text=\(text)&channel=\(channel)")!
+        let dataTask = session.dataTask(with: apiURL) { (data, response, error) in
+            if let _ = error {
+                completionHandler()
+                return
+            }
+            
+//            guard let data = data,
+//                let jsonObject = try? JSONSerialization.jsonObject(with: data),
+//                let jsonDictionary = jsonObject as? [String: AnyObject],
+//                let jsonFiles = jsonDictionary["files"] as? [[String: AnyObject]],
+//                let files = Parser.parseFiles(JSON: jsonFiles),
+//                let jsonPage = jsonDictionary["paging"] as? [String: AnyObject],
+//                let page = Parser.parsePage(JSON: jsonPage, elements: files) else {
+//                    completionHandler()
+//                    return
+//            }
+    
+            completionHandler()
+        }
+        dataTask.resume()
+    }
 }
