@@ -4,9 +4,51 @@ import UIKit
 import PlaygroundSupport
 import SlackAPI
 
-PlaygroundPage.current.needsIndefiniteExecution = true
+class SlackAPIViewController : UIViewController {
+    override func viewDidLoad() {
+        view.backgroundColor = UIColor.white()
+        
+        let row0: UIStackView = {
+            let label = UILabel()
+            label.text = "Slack API Token"
+            let textField = UITextField()
+            textField.borderStyle = .roundedRect
+            textField.placeholder = "Enter token"
+            textField.setContentHuggingPriority(UILayoutPriorityDefaultLow - 1, for: .horizontal)
+            let row = UIStackView(arrangedSubviews: [label, textField])
+            row.spacing = 8
+            
+            return row
+        }()
 
-let slackClient = SlackClient(token: "xoxp-11698035268-11714152049-52250331493-5ac7d3dcd9")
+        let row1: UIStackView = {
+            let button = UIButton(type: .system)
+            button.setTitle("Load files", for: UIControlState(rawValue: UInt(0)))
+            button.titleLabel?.font = UILabel().font
+            let stretchingView = UIView()
+            stretchingView.setContentHuggingPriority(1, for: .horizontal)
+            stretchingView.backgroundColor = .clear()
+            stretchingView.translatesAutoresizingMaskIntoConstraints = false
+            let row = UIStackView(arrangedSubviews: [button, stretchingView])
+            
+            return row
+        }()
+
+        let stackView = UIStackView(arrangedSubviews: [row0, row1])
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stackView)
+        stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+    }
+}
+
+PlaygroundPage.current.liveView = SlackAPIViewController()
+//PlaygroundPage.current.needsIndefiniteExecution = true
+
+let slackClient = SlackClient(token: "")
 
 //func listFiles(to: Date, pageIndex: Int, pageHandler: (Page<File>) -> Void, completionHandler: () -> Void) {
 //    slackClient.listFiles(to: to, pageIndex: pageIndex) { (page) in
@@ -31,8 +73,8 @@ let slackClient = SlackClient(token: "xoxp-11698035268-11714152049-52250331493-5
 //    PlaygroundPage.current.finishExecution()
 //}
 
-print("request started")
-slackClient.postMessageChat(text: "test", channel: "slack-api-test") {
-    print("request ended")
-    PlaygroundPage.current.finishExecution()
-}
+//print("request started")
+//slackClient.postMessageChat(text: "test", channel: "slack-api-test") {
+//    print("request ended")
+//    PlaygroundPage.current.finishExecution()
+//}
