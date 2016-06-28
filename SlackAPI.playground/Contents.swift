@@ -25,6 +25,7 @@ class SlackAPIViewController : UIViewController {
             let button = UIButton(type: .system)
             button.setTitle("Load files", for: UIControlState(rawValue: UInt(0)))
             button.titleLabel?.font = UILabel().font
+            button.addTarget(self, action: #selector(loadFiles), for: .touchUpInside)
             let stretchingView = UIView()
             stretchingView.setContentHuggingPriority(1, for: .horizontal)
             stretchingView.backgroundColor = .clear()
@@ -42,6 +43,10 @@ class SlackAPIViewController : UIViewController {
         stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
         stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+    }
+
+    func loadFiles() {
+        print("loadFiles")
     }
 }
 
