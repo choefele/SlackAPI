@@ -44,8 +44,7 @@ public class SlackClient {
         dataTask.resume()
     }
     
-    public func postMessageChat(text: String, completionHandler: () -> Void) {
-        let channel = "slack-api-test"
+    public func postMessageChat(text: String, channel:String, completionHandler: () -> Void) {
         let apiURL = URL(string: SLACK_API + "/chat.postMessage?token=\(token)&text=\(text)&channel=\(channel)")!
         let dataTask = session.dataTask(with: apiURL) { (data, response, error) in
             if let _ = error {

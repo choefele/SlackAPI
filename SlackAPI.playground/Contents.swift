@@ -32,7 +32,7 @@ let slackClient = SlackClient(token: "xoxp-11698035268-11714152049-52250331493-5
 //}
 
 print("request started")
-slackClient.postMessageChat(text: "test") {
+slackClient.postMessageChat(text: "test", channel: "slack-api-test") {
     print("request ended")
     PlaygroundPage.current.finishExecution()
 }
